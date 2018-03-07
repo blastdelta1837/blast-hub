@@ -1,0 +1,17 @@
+version: '2'
+services:
+  blast-hub:
+    build: .
+    environment:
+      HOST: "127.0.0.1"
+      HOME: "${HOME}"
+      DEBUG: "${DEBUG}"
+    ports:
+      - "80:80"
+      - "8008:8008"
+      - "8007:8007"
+    volumes:
+      - $HOME/.ssb:/root/.ssb
+    container_name: blast-hub
+    mem_limit: 450M
+    restart: unless-stopped
